@@ -18,10 +18,8 @@
   font-family: var(--font-Inter), sans-serif;
   font-variation-settings: "wght" var(--font-weight-text);
   background-image: var(--bg);
-  background-image: var(--bg-img);
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
   color: var(--color-text);
 }
@@ -73,18 +71,21 @@
 .card__title {
   font-variation-settings: "wght" var(--font-weight-title);
   font-size: 18px;
-  padding: 3px 10px;
+  padding: 6px 10px;
 }
 
 .card__item {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 27px;
   padding: 25px;
 }
+
 .card__images {
   position: relative;
+  overflow: hidden;
 }
+
 .card__images-img {
   display: block;
   width: 100%;
@@ -92,33 +93,33 @@
   object-fit: cover;
 }
 
-.html-preparation{
-
-}
-.html-clean{
-    filter: saturate(0.5);
-}
-.css{
-    filter: hue-rotate(45deg);
-}
-.desigions{
-    filter: hue-rotate(45deg);
-}
-.care{
-filter: invert(1);
-}
-.support{
-    filter: sepia(1);
-}
-.lifes-style{
-filter: blur(15px);
-}
-.experience{
-    filter: blur(5px);
+.html-clean {
+  filter: saturate(0.3);
 }
 
+.css {
+  filter: saturate(3) contrast(1) brightness(1.1);
+}
 
+.desigions {
+  filter: hue-rotate(45deg);
+}
 
+.care {
+  filter: invert(1);
+}
+
+.support {
+  filter: sepia(1);
+}
+
+.lifes-style {
+  filter: blur(15px);
+}
+
+.experience {
+  filter: hue-rotate(95deg) contrast(0.5);
+}
 
 .lable {
   position: absolute;
@@ -153,7 +154,7 @@ filter: blur(15px);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 12px;
+  gap: 7px;
 }
 
 button {
@@ -163,21 +164,84 @@ button {
   cursor: pointer;
 }
 
+button:focus {
+  outline: none;
+}
+
 .button {
   padding: 0;
   background: #fff;
-  border: 2px solid #000;
+  border: 2px solid var(--accent-color);
   font-size: 14px;
   font-family: var(--font-PressStart2P), sans-serif;
   font-weight: 400;
   line-height: 90%;
   min-width: 130px;
   min-height: 38px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.button:focus {
+  transition: box-shadow 0.3s ease;
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-text);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::after {
+  transform: translateX(0);
+}
+
+.button__text,
+.save-icon {
+  color: var(--accent-color-hover);
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  mix-blend-mode: difference;
+  background: var(--accent-color);
+  fill: var(--accent-color-hover);
+}
+
+.button:hover .save-icon,
+.button:hover .button__text {
+  color: var(--accent-color-hover);
+  fill: var(--accent-color-hover);
+  mix-blend-mode: difference;
 }
 
 .card__icon-button {
-  height: 24px;
+  height: 38px;
   width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+}
+
+.sparks {
+  opacity: 0;
 }
 
 .footer {
@@ -189,10 +253,8 @@ button {
 }
 
 .footer .button {
-  padding: 0.81rem 1.56rem;
+  padding: 1rem 1.2rem;
 }
-
-
 
 .modal[open] {
   padding: 30px;
@@ -223,7 +285,7 @@ button {
   }
 }
 
-.modal::backdrop{
+.modal::backdrop {
   background: #000;
   opacity: 75%;
 }
@@ -242,12 +304,13 @@ button {
 }
   */
 
-
 @media (width <= 375px) {
-  .header, .main, .footer{
+  .header,
+  .main,
+  .footer {
     width: var(--width-mobile);
   }
-  .footer .button{
+  .footer .button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,11 +318,11 @@ button {
     gap: 8px;
     padding: 0.857rem 1.125rem;
   }
-  .save-icon{
+  .save-icon {
     width: 28px;
     height: 28px;
   }
-  .modal[open]{
+  .modal[open] {
     min-width: 341px;
   }
 }

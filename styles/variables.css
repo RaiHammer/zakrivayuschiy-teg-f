@@ -1,17 +1,33 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 
-:root{
-  --font-Inter: 'Inter';
-  --font-PressStart2P: 'PressStart2P';
+:root {
+  --font-Inter: "Inter";
+  --font-PressStart2P: "PressStart2P";
   --font-weight-title: 700;
   --font-weight-text: 400;
-  --bg: linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%),
-        repeating-linear-gradient(to bottom, #d3d3d3 2px,transparent 2px),
-        repeating-linear-gradient(to right, #d3d3d3 2px, transparent 2px);
+  --bg: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #d3d3d3 0,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+
   --bg-block: #fff;
-  --bg-img: url(../images/background.png);
   --color-text: #000;
   --stroke-color: #fff;
+  --accent-color: #000;
+  --accent-color-hover: #fff;
   --width-desktop: calc(clamp(23.438rem, 48.363vw + 0.223rem, 43.75rem));
   --width-mobile: 100%;
+  --contour-color: #000;
+  --animation-fill-color: red;
 }
