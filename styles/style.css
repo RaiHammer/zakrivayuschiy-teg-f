@@ -182,7 +182,6 @@ button:focus {
   overflow: hidden;
   cursor: pointer;
   color: var(--color-text);
-  transition: all 0.3s ease;
 }
 
 .button:focus {
@@ -257,7 +256,6 @@ button:focus {
 }
 
 .modal[open] {
-  padding: 30px;
   border: 2px solid #000;
   padding: 28px;
   display: grid;
